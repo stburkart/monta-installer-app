@@ -1,23 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary Colors */
+  --monta-black: #000000;
+  --monta-charcoal: #292929;
+  --monta-grey-bg: #ececec;
+  --monta-white: #ffffff;
+  --monta-blue: #302ee0;
+
+  /* Secondary Colors */
+  --monta-grey-dark: #4f4f4f;
+  --monta-grey-medium: #a3a3a3;
+  --monta-grey-light: #d4d4d4;
+  --monta-blue-light: #337DFF;
+  --monta-blue-dark: #001a3d;
+  --monta-coral: #ff4a4f;
+  --monta-burgundy: #54001E;
+
+  /* Semantic Colors */
+  --monta-success: #22c55e;
+  --monta-warning: #f59e0b;
+  --monta-error: #ef4444;
+  --monta-info: #337DFF;
+
+  /* Typography */
+  --font-primary: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', monospace;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 200ms ease;
+  --transition-slow: 300ms ease;
+
+  /* Z-Index Scale */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-modal: 300;
+  --z-tooltip: 400;
+
+  /* Theme Semantic (Light Default) */
+  --bg-primary: var(--monta-white);
+  --bg-secondary: var(--monta-grey-bg);
+  --bg-tertiary: var(--monta-grey-light);
+  --text-primary: var(--monta-black);
+  --text-secondary: var(--monta-charcoal);
+  --text-muted: var(--monta-grey-dark);
+  --accent: var(--monta-blue);
+  --accent-hover: var(--monta-blue-light);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    box-sizing: border-box;
   }
+
+  html {
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  h1 { font-size: 60px; font-weight: 500; line-height: 1.0; letter-spacing: -2px; }
+  h2 { font-size: 48px; font-weight: 500; line-height: 1.1; letter-spacing: -1px; }
+  h3 { font-size: 36px; font-weight: 500; line-height: 1.1; letter-spacing: -0.5px; }
+  h4 { font-size: 30px; font-weight: 500; line-height: 1.2; }
+  h5 { font-size: 24px; font-weight: 500; line-height: 1.2; }
+  h6 { font-size: 20px; font-weight: 500; line-height: 1.2; }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .container-monta {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-medium rounded-full uppercase tracking-wide;
+  }
+  .badge-success { @apply bg-green-100 text-green-800; }
+  .badge-warning { @apply bg-yellow-100 text-yellow-800; }
+  .badge-error { @apply bg-red-100 text-red-800; }
+  .badge-info { @apply bg-blue-100 text-blue-800; }
+  .badge-neutral { background: var(--monta-grey-bg); color: var(--monta-grey-dark); }
 }
 
 @layer utilities {
